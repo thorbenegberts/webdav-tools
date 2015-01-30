@@ -14,7 +14,7 @@ easy_install easywebdav
 
 ## Usage
 
-Output of `webdav_upload.py --help`:
+Output of `python webdav_upload.py --help`:
 
 ```
 usage: webdav_upload.py [-h] --url URL [--username USERNAME]
