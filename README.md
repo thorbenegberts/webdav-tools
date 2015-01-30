@@ -6,7 +6,7 @@ A simple python script for uploading multiple files to a WebDav server.
 
 ## Setup
 
-Install the (easywebdav)[https://github.com/amnong/easywebdav] gem:
+Install the [easywebdav](https://github.com/amnong/easywebdav) gem:
 
 ```
 easy_install easywebdav
