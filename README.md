@@ -1,4 +1,4 @@
-# WebDav Tools
+# WebDav Tools for Python
 
 A collection of handy Python scripts that makes working with WebDav less painful. This project is built upon the [easywebdav](https://github.com/amnong/easywebdav) client for Python. The client itself is great, but I always had to write the same boilerplate code.
 
