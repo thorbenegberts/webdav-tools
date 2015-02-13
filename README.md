@@ -1,18 +1,20 @@
-# WebDav Upload Script
+# WebDav Tools
 
-A simple python script for uploading multiple files to a WebDav server.
+A collection of handy Python scripts that makes working with WebDav less painful. This project is built upon the [easywebdav](https://github.com/amnong/easywebdav) client for Python. The client itself is great, but I always had to write the same boilerplate code.
 
 # Usage
 
 ## Setup
 
-Install the [easywebdav](https://github.com/amnong/easywebdav) gem:
+Install the [easywebdav](https://github.com/amnong/easywebdav) Client for Python:
 
 ```
 easy_install easywebdav
 ```
 
 ## Usage
+
+### Upload files or directories
 
 Output of `python webdav_upload.py --help`:
 
@@ -33,7 +35,7 @@ optional arguments:
   --password PASSWORD  The password.
 ```
 
-## Example
+**Example:**
 
 Example usage for uploading two different files. You can specifiy as many files as you want. Note that you must define your local file and your desired remote file devided by a colon:
 
