@@ -1,6 +1,5 @@
-# v0.1 from https://github.com/thorbenegberts/webdav-upload-script/
+# v0.2 of https://github.com/thorbenegberts/webdav-upload-script/
 
-import easywebdav
 import argparse
 
 parser = argparse.ArgumentParser(description='WebDav upload processing.')
@@ -31,4 +30,18 @@ for fileFromTo in args.files:
 		raise Exception("Invalid file argument!")
 	fileFrom = fileSplitted[0]
 	fileTo = fileSplitted[1]
+
+    # TODO fileFrom ein verzeichnis ist, dann darf fileTo keine einzeldatei sein, sondern ein verzeichnis. für
+    # fileTo muss dann jeweils der dateiname von fileFrom übernommen werden, nachdem der ordner-
+    # inhatl ausgelesen worden ist. also in der iteration
+
+    # if isDirectory fileForm:
+        # raise error if fileTo is not a directory
+        # for each file:
+            # toFile = toFile (directory) + filename (without directory)
+            # upload toFile
+    # else:
+        # (default)
 	webdav.upload(fileFrom, fileTo)
+
+def upload(fromFile, toFile)
