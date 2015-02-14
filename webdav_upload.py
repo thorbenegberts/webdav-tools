@@ -1,6 +1,7 @@
 # v0.2 of https://github.com/thorbenegberts/webdav-upload-script/
 
 import argparse
+import webdavtools
 
 parser = argparse.ArgumentParser(description='WebDav upload processing.')
 
@@ -20,28 +21,18 @@ parser.add_argument('--password', dest='password', help='The password.')
 args = parser.parse_args()
 
 # Connect to WebDav with given credentials
-webdav = easywebdav.connect(args.url, username=args.username, password=args.password)
+webDavTools = webdavtools.WebDavTools()
+webDavTools.connect(args.url, args.username, args.password)
 
 # Upload files
-for fileFromTo in args.files:
-	# Files have to be devided by ":", e.g. "/my/local/file/from.txt:/my/remote/file/to.txt"
-	fileSplitted = fileFromTo.split(':')
-	if len(fileSplitted) != 2:
-		raise Exception("Invalid file argument!")
-	fileFrom = fileSplitted[0]
-	fileTo = fileSplitted[1]
+for sourceAndTarget in args.files:
+    # Files have to be devided by ":", e.g. "/my/local/file/from.txt:/my/remote/file/to.txt"
+    sourceAndTargetSplitted = sourceAndTarget.split(':')
 
-    # TODO fileFrom ein verzeichnis ist, dann darf fileTo keine einzeldatei sein, sondern ein verzeichnis. für
-    # fileTo muss dann jeweils der dateiname von fileFrom übernommen werden, nachdem der ordner-
-    # inhatl ausgelesen worden ist. also in der iteration
+    if len(sourceAndTargetSplitted) != 2:
+        raise Exception("Invalid file argument!")
 
-    # if isDirectory fileForm:
-        # raise error if fileTo is not a directory
-        # for each file:
-            # toFile = toFile (directory) + filename (without directory)
-            # upload toFile
-    # else:
-        # (default)
-	webdav.upload(fileFrom, fileTo)
+    source = sourceAndTargetSplitted[0]
+    target = sourceAndTargetSplitted[1]
 
-def upload(fromFile, toFile)
+    webDavTools.upload(source, target)
