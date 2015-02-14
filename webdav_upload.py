@@ -1,7 +1,7 @@
-# v0.1 from https://github.com/thorbenegberts/webdav-upload-script/
+# v0.2 of https://github.com/thorbenegberts/webdav-upload-script/
 
-import easywebdav
 import argparse
+import webdavtools
 
 parser = argparse.ArgumentParser(description='WebDav upload processing.')
 
@@ -21,14 +21,18 @@ parser.add_argument('--password', dest='password', help='The password.')
 args = parser.parse_args()
 
 # Connect to WebDav with given credentials
-webdav = easywebdav.connect(args.url, username=args.username, password=args.password)
+webDavTools = webdavtools.WebDavTools()
+webDavTools.connect(args.url, args.username, args.password)
 
 # Upload files
-for fileFromTo in args.files:
-	# Files have to be devided by ":", e.g. "/my/local/file/from.txt:/my/remote/file/to.txt"
-	fileSplitted = fileFromTo.split(':')
-	if len(fileSplitted) != 2:
-		raise Exception("Invalid file argument!")
-	fileFrom = fileSplitted[0]
-	fileTo = fileSplitted[1]
-	webdav.upload(fileFrom, fileTo)
+for sourceAndTarget in args.files:
+    # Files have to be devided by ":", e.g. "/my/local/file/from.txt:/my/remote/file/to.txt"
+    sourceAndTargetSplitted = sourceAndTarget.split(':')
+
+    if len(sourceAndTargetSplitted) != 2:
+        raise Exception("Invalid file argument!")
+
+    source = sourceAndTargetSplitted[0]
+    target = sourceAndTargetSplitted[1]
+
+    webDavTools.upload(source, target)
