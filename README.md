@@ -48,4 +48,4 @@ Example usage for uploading files. You can add as many file arguments as you wan
 python webdav_upload.py --url=my.domain.com --username=myusername --password=mypassword /my/local/files/*.txt:/my/remote/files/ /my/other/local/file/from.txt:/my/other/remote/file/to.txt
 ```
 
-This will upload all `.txt`-Files from `/my/local/files/` to `/my/remote/files/` and the single file `/my/other/local/file/from.txt` to `/my/other/remote/file/to.txt` on the server.
+This will upload all `.txt` files from `/my/local/files/` to `/my/remote/files/` and the single file `/my/other/local/file/from.txt` to `/my/other/remote/file/to.txt` on the server.
