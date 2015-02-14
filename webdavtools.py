@@ -1,3 +1,5 @@
+# v0.2 of https://github.com/thorbenegberts/webdav-upload-script/
+
 import easywebdav
 import glob
 
